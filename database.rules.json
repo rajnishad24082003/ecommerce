@@ -1,0 +1,22 @@
+{
+  "rules": {
+    "profile": {
+      ".read": true,
+      ".write": "auth != null",
+      "$user_id": {
+        ".read": "$user_id != null",
+        ".write": "$user_id != null"
+      }
+    },
+    "status": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$user_id": {
+        ".read": true,
+        ".write": "$user_id === auth.uid"
+      }
+    },
+    ".read": false,
+    ".write": false
+  }
+}
